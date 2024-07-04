@@ -8,8 +8,27 @@ datasource db {
 }
 
 model User {
-  id      String      @id @default(cuid())
-  name    String?  @db.VarChar(255)
-  email   String   @unique @db.VarChar(255)
-  password String 
+  id       String    @id @default(cuid())
+  name     String
+  email    String    @unique
+  password String
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  imageurl         String
+  price       Float
+  rating      Float
+  ratingCount Int
+  sellerName  String    
+  title       String
+     
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  name     String
+  products Product[]
 }

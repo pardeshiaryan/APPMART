@@ -5,7 +5,7 @@ export const headerLinks = [
     },
     {
       label: 'Cart',
-      route: '/events/create',
+      route: '/cart',
     },
     {
       label: 'No Idea what to add',
